@@ -1,0 +1,75 @@
+#header {
+  position:absolute;
+  top:70px;
+  left:250px;
+}
+
+#logo {
+  position:absolute;
+  top:85px;
+  left:100px;
+  height:40px;
+  width:150px;
+  background-image: url('../images/flat.st.png');
+  background-repeat: no-repeat;
+}
+
+#main {
+  position:absolute;
+  top:130px;
+  left:100px;
+  height:300px;
+  width:600px;
+  margin-top:5px;
+  overflow:auto;
+  
+  background-color:#FBF8EF;
+  border:1px solid #800000;
+}
+
+#essentials {
+  height:70px;
+}
+
+#name, #email, #submit {
+  float:left;
+  margin-left:10px;
+}
+
+#messageField, #notice {
+  font-size:80%;
+  margin-left:10px;
+}
+
+#adminLink {
+  position: absolute;
+  left: 710px;
+  top:105px;
+  font-size:80%;
+  cursor:pointer;
+}
+#adminLogin {
+  position: absolute;
+  left: 710px;
+  top:135px;
+  background-color:#FBF8EF;
+  text-align:right;
+  font-size:80%;
+}
+
+td {
+  border: 1px inset #800500;
+}
+
+table
+{
+  border-collapse:collapse;
+}
+
+.list_line_even {
+  background-color:white;
+}
+
+
+
+
