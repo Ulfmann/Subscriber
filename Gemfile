@@ -5,6 +5,9 @@ group :default do
   gem 'sqlite3'
 end
 
-group :development do
+group :test do
   gem 'rspec-rails'
+  gem 'capybara', '~> 1.0.0'
+  gem 'launchy'
 end
+

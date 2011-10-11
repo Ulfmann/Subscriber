@@ -8,6 +8,6 @@ $(document).ready(function(){
   });
   
   $('#adminLink').click(function(){
-    $('#adminLogin').slideToggle();
+    $('#adminLogin').slideToggle('fast');
   })
 });

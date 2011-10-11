@@ -12,19 +12,12 @@
   <% end %>
   <div id="essentials">
     <div id="email" class="field">
-      <%= f.label :email %><br />
+      <%= f.label :email, "E-Mail" %><br />
       <%= f.text_field :email, maxlength: 50 %>
     </div>
   </div>
-  <div id="notice" class="field">
-    Wie bist Du auf uns gekommen? <input type="button" id="toggleButton" value="∇">
-  </div>
-  <div id="messageField">
-    <%= f.text_area :notice, cols: 60, rows: 10 %>
-  </div>
+
   <div id="submit">
     <%= f.submit 'Abschicken' %>
   </div>
 <% end %>
-
-

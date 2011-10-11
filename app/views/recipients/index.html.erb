@@ -2,26 +2,26 @@
 <br />
 <table>
   <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Notice</th>
-    <th></th>
+    <th style="text-align:left">Email</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @recipients.each do |recipient| %>
+  
   <tr class="<%= cycle('list_line_even', 'list_line_odd') %>">
-    <td><%= recipient.name %></td>
-    <td><%= recipient.email %></td>
-    <td><%= recipient.notice %></td>
-    <td><%= link_to 'Show', recipient %></td>
-    <td><%= link_to 'Edit', edit_recipient_path(recipient) %></td>
-    <td><%= link_to 'Destroy', recipient, :confirm => 'Are you sure?', :method => :delete %></td>
+
+    <td><%= link_to recipient.email, edit_recipient_path(recipient) %></td>
+    <td><%= button_to "Entfernen", recipient, :method => :delete %>  
+    </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Recipient', new_recipient_path %>
+<%= link_to 'Neue Mail-Adresse', new_recipient_path %>
+
+<%= form_tag(logout_path, method: :delete) do %>
+  <%= submit_tag "Abmelden"%>
+<% end %>  

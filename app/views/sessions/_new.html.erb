@@ -3,7 +3,6 @@
 <% end %>
 
 <%= form_tag(login_path) do %>
-  <fieldset>
     <div>
       <label for="name" style="float:left">Name:</label>
       <%= text_field_tag :name, params[:name] %>
@@ -15,5 +14,4 @@
     <div>
       <%= submit_tag "Anmelden" %>
     </div>
-  </fieldset>
 <% end %>

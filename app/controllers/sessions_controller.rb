@@ -8,12 +8,12 @@ class SessionsController < ApplicationController
     if session[:admin]
       redirect_to recipients_path
     else
-      redirect_to new_recipients_path
+      redirect_to new_recipient_path
     end
   end
 
   def destroy
     session[:admin] = false
-    redirect_to recipients_url
+    redirect_to new_recipient_path
   end
 end

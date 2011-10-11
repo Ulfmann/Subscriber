@@ -45,9 +45,9 @@ class RecipientsController < ApplicationController
     @recipient = Recipient.new(params[:recipient])
 
     respond_to do |format|
-      if
+      if @recipient.save
         #Notifier.newsletter(@recipient).deliver
-        format.html { redirect_to(@recipient, :notice => 'Recipient was successfully created.') }
+        format.html { redirect_to(new_recipient_path, :notice => 'Recipient was successfully created.') }
         format.xml  { render :xml => @recipient, :status => :created, :location => @recipient }
       else
         format.html { render :action => "new" }
@@ -79,7 +79,7 @@ class RecipientsController < ApplicationController
     @recipient.destroy
 
     respond_to do |format|
-      format.html { redirect_to(recipients_url) }
+      format.html { redirect_to(recipients_path) }
       format.xml  { head :ok }
     end
   end
