@@ -20,8 +20,33 @@
 
 <br />
 
-<%= link_to 'Neue Mail-Adresse', new_recipient_path %>
+<div>
+  <div id="button">
+    <%= form_tag(new_recipient_path, method: :get) do %>
+      <%= button_to 'Neue Mail-Adresse' %>
+    <% end %>
+  </div>
+  <div id="button">
+    <%= form_tag(logout_path, method: :delete) do %>
+      <%= submit_tag "Abmelden"%>
+    <% end %>
+  </div>
+  <div>
+      <input type="submit" value="Newsletter verfassen" id="newsletterButton"> 
+  </div>
+</div>
+<div id="newsfield">
+  <%= form_tag(notify_path) do %>
+    <%= text_area_tag "newsletter", params[:newsletter], cols: 70, rows: 20 %>
+    <br />
+    <%= submit_tag "Senden" %>
+  <% end %>
+</div>
 
-<%= form_tag(logout_path, method: :delete) do %>
-  <%= submit_tag "Abmelden"%>
-<% end %>  
+
+
+
+
+
+
+

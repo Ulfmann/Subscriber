@@ -1,6 +1,11 @@
 require 'acceptance/acceptance_helper'
 
 feature "admin" do
+  
+  before do
+    recipient = Recipient.new(email:"hello@me.de")
+    recipient.save
+  end
 
   scenario "Login" do
     
@@ -24,9 +29,6 @@ feature "admin" do
   
   scenario "Delete Subscriber" do
     
-    recipient = Recipient.new(email:"hello@me.de")
-    recipient.save
-    
     visit "/recipients"
     
     click_button "Entfernen"
@@ -35,4 +37,42 @@ feature "admin" do
     current_path.should eql('/recipients')
   end
   
+  scenario "Edit Subscriber" do
+    
+    visit "/recipients"
+    
+    click_link "hello@me.de"
+    
+    page.should have_content("Adresse bearbeiten")
+    fill_in "E-Mail", with: "hello@you.de"
+    
+    click_button "Abschicken"
+    
+    current_path.should_not have_content("hello@you.de")
+    current_path.should eql('/recipients')
+  end
+  
+  scenario "Sending Mail" do
+    
+    pending
+    
+  end
+  
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
