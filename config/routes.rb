@@ -6,6 +6,10 @@ Subscriber::Application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
+  
+  controller :newsletters do
+    post 'notify' => :notify
+  end
 
   resources :recipients
   

@@ -1,7 +1,8 @@
 $(document).ready(function(){
   
-  $('#messageField').hide()
-  $('#adminLogin').hide()
+  $('#messageField').hide();
+  $('#adminLogin').hide();
+  $('#newsfield').hide();
   
   $('#toggleButton').click(function(){
     $('#messageField').slideToggle();
@@ -10,4 +11,9 @@ $(document).ready(function(){
   $('#adminLink').click(function(){
     $('#adminLogin').slideToggle('fast');
   })
+  
+  $('#newsletterButton').click(function(){
+    $('#newsfield').slideToggle();
+  });
+  
 });
