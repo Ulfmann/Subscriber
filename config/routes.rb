@@ -6,12 +6,12 @@ Subscriber::Application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
-  
-  controller :newsletters do
-    post 'notify' => :notify
-  end
 
   resources :recipients
+  
+  controller :recipients do
+    post 'notify' => :notify
+  end
   
   root :to => 'recipients#new'
   # The priority is based upon order of creation:

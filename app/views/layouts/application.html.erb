@@ -15,6 +15,11 @@
     </div>
   </div>
   <div id="main">
+    
+    <% flash.each do |type, message| %>
+      <p id="<%= type %>"><%= message %></p>
+    <% end %>
+    
     <%= yield %>
   </div>
   <div id="header">

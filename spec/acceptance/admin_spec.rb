@@ -9,8 +9,7 @@ feature "admin" do
 
   scenario "Login" do
     
-    visit "/"
-    
+    visit "/"  
     fill_in "name", with: "admin"
     fill_in "password", with: "root"
     
@@ -29,26 +28,10 @@ feature "admin" do
   
   scenario "Delete Subscriber" do
     
-    visit "/recipients"
-    
+    visit "/recipients" 
     click_button "Entfernen"
     
     page.should_not have_content("hello@me.de")
-    current_path.should eql('/recipients')
-  end
-  
-  scenario "Edit Subscriber" do
-    
-    visit "/recipients"
-    
-    click_link "hello@me.de"
-    
-    page.should have_content("Adresse bearbeiten")
-    fill_in "E-Mail", with: "hello@you.de"
-    
-    click_button "Abschicken"
-    
-    current_path.should_not have_content("hello@you.de")
     current_path.should eql('/recipients')
   end
   
