@@ -1,4 +1,13 @@
+<%= form_for(@recipient) do |f| %>
 
+  <div id="essentials">
+    <div id="email" class="field">
+      <%= f.label :email, "E-Mail" %><br />
+      <%= f.text_field :email, maxlength: 50 %>
+    </div>
+  </div>
 
-<%= render 'form' %>
-
+  <div id="submit">
+    <%= f.submit 'Abschicken' %>
+  </div>
+<% end %>

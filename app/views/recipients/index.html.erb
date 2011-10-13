@@ -11,7 +11,7 @@
   
   <tr class="<%= cycle('list_line_even', 'list_line_odd') %>">
 
-    <td><%= link_to recipient.email, edit_recipient_path(recipient) %></td>
+    <td><%= recipient.email %></td>
     <td><%= button_to "Entfernen", recipient, :method => :delete %>  
     </td>
   </tr>
