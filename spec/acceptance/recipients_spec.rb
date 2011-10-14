@@ -6,8 +6,8 @@ feature "Recipients" do
   scenario "adding a new Recipient" do
     
     visit '/'
-    fill_in "E-Mail", with: "ulf@flatst.de"
-    click_button 'Abschicken'
+    fill_in "recipient_email", with: "ulf@flatst.de"
+    click_button 'Eintragen'
     
     page.should have_content("Danke für Deine Anmeldung")
   end
@@ -15,8 +15,8 @@ feature "Recipients" do
   scenario "Insert invalid Data" do
     
     visit "/"
-    fill_in "E-Mail", with: "crappy nonsense"
-    click_button 'Abschicken'
+    fill_in "recipient_email", with: "crappy nonsense"
+    click_button 'Eintragen'
     
     page.should have_content("Keine gültige Email-Adresse!")
   end
