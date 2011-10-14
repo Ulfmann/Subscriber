@@ -18,7 +18,7 @@ feature "Recipients" do
     fill_in "E-Mail", with: "crappy nonsense"
     click_button 'Abschicken'
     
-    page.should have_content("Hoppla!")
+    page.should have_content("Keine gültige Email-Adresse!")
   end
   
   scenario "Access Admin Page" do
