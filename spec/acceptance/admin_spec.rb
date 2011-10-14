@@ -9,7 +9,7 @@ feature "admin" do
 
   scenario "Login" do
     
-    visit "/"  
+    visit login_path
     fill_in "name", with: "admin"
     fill_in "password", with: "root"
     
@@ -20,7 +20,12 @@ feature "admin" do
   
   scenario "Logout" do
   
-    visit "/recipients"
+    visit login_path
+    fill_in "name", with: "admin"
+    fill_in "password", with: "root"
+    
+    click_button "Anmelden"
+    
     click_button "Abmelden"
     
     current_path.should eql('/recipients/new')
@@ -28,17 +33,16 @@ feature "admin" do
   
   scenario "Delete Subscriber" do
     
-    visit "/recipients" 
+    visit login_path
+    fill_in "name", with: "admin"
+    fill_in "password", with: "root"
+    
+    click_button "Anmelden"
+     
     click_button "Entfernen"
     
     page.should_not have_content("hello@me.de")
     current_path.should eql('/recipients')
-  end
-  
-  scenario "Sending Mail" do
-    
-    pending
-    
   end
   
 end

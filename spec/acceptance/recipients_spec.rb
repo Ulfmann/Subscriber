@@ -20,4 +20,11 @@ feature "Recipients" do
     
     page.should have_content("Hoppla!")
   end
+  
+  scenario "Access Admin Page" do
+    
+    visit "/recipients"
+    page.should have_content("Du hast keinen Zugriff auf den Adminbereich!")
+    
+  end
 end

@@ -22,5 +22,6 @@ describe Mailer do
     it "should contain a link to flatst" do
       mail.body.encoded.should match("http://flat.st")
     end
+    
   end
 end

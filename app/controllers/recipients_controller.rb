@@ -4,6 +4,12 @@ class RecipientsController < ApplicationController
   skip_before_filter :authorize, only: :new
 
   def index
+    
+    unless (session[:admin])
+      flash[:error] = "Du hast keinen Zugriff auf den Adminbereich!"
+      redirect_to new_recipient_path
+    end
+    
     @recipients = Recipient.all
   end
 
@@ -17,7 +23,7 @@ class RecipientsController < ApplicationController
     if @recipient.save      
       redirect_to new_recipient_path, notice: 'Danke für Deine Anmeldung!'
     else
-      flash[:alert] = "Hoppla!"
+      flash[:alert] = "Keine gültige Email-Adresse!"
       render :new
     end
   end
@@ -30,10 +36,9 @@ class RecipientsController < ApplicationController
   end
   
   def notify
-    puts params[:newsletter]
-    Recipient.send_later(:send_notifications)
+    Recipient.delay.send_notifications
     
-    render "mailer/notification.text.erb"
+    redirect_to recipients_path, notice: 'Der Newsletter wird jetzt versendet.'
   end
   
 end

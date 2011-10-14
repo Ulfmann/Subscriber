@@ -8,14 +8,8 @@
 </head>
 <body>
   <div id="logo"></div>
-  <div>
-    <a id="adminLink">Ich bin Admin</a>
-    <div id="adminLogin">
-      <%= render partial: 'sessions/new' %>
-    </div>
-  </div>
-  <div id="main">
-    
+  
+  <div id="main">  
     <% flash.each do |type, message| %>
       <p id="<%= type %>"><%= message %></p>
     <% end %>

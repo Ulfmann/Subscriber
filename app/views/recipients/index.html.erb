@@ -32,16 +32,12 @@
     <% end %>
   </div>
   <div>
-      <input type="submit" value="Newsletter verfassen" id="newsletterButton"> 
+    <%= form_tag(notify_path) do %>
+      <input type="submit" value="Newsletter versenden" id="newsletterButton"> 
+    <% end %>
   </div>
 </div>
-<div id="newsfield">
-  <%= form_tag(notify_path) do %>
-    <%= text_area_tag "newsletter", params[:newsletter], cols: 70, rows: 20 %>
-    <br />
-    <%= submit_tag "Senden" %>
-  <% end %>
-</div>
+
 
 
 
