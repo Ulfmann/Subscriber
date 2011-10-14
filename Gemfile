@@ -6,6 +6,7 @@ group :default do
   gem 'delayed_job'
   gem 'haml-rails'
   gem 'sass-rails'
+  gem 'uglifier'
 end
 
 group :development do
