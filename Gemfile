@@ -2,9 +2,8 @@ source 'http://rubygems.org'
 
 group :default do
   gem 'rails', '3.1.1'
-  gem 'sqlite3'
-  gem 'delayed_job'
   gem 'pg'
+  gem 'delayed_job'
   gem 'haml-rails'
   gem 'sass-rails'
 end
