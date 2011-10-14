@@ -1,0 +1,41 @@
+body {
+  font-family: proxima-nova-soft, sans-serif;
+}
+
+h1 {
+  width: 200px;
+  margin: 50px auto 0;  
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input[type=text] {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+input[type=submit] {
+  border: 1px solid darkgreen;  
+  border-radius: 4px;
+  background-color: lime;
+  padding: 5px 10px;
+}
+
+#recipient {
+  width: 480px;
+  margin: 50px auto 0;
+  font-size: 18px;
+}
+
+#recipient_email {
+  width: 340px;
+}

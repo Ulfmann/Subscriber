@@ -1,13 +1,10 @@
+<h1><img src="/assets/flat.st.png" alt="flatst" /></h1>
+
 <%= form_for(@recipient) do |f| %>
 
-  <div id="essentials">
-    <div id="email" class="field">
-      <%= f.label :email, "E-Mail" %><br />
-      <%= f.text_field :email, maxlength: 50 %>
-    </div>
-  </div>
+  <fieldset id="recipient">
+    <%= f.text_field :email, placeholder:'Gib hier Deine E-Mail-Adresse ein.' %>
+    <%= f.submit 'Eintragen' %>
+  </fieldset>
 
-  <div id="submit">
-    <%= f.submit 'Abschicken' %>
-  </div>
 <% end %>

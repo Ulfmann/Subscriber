@@ -1,4 +1,14 @@
+.DS_Store
 .bundle
 db/*.sqlite3
+.rvmrc
+.powenv
+.sass-cache
 log/*.log
-tmp/
+*.tmproj
+tmp/**/*
+tmp/*
+public/stylesheets/*.css
+config/database.yml
+db/schema.rb
+coverage*
