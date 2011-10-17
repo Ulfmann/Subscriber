@@ -12,5 +12,5 @@ Subscriber::Application.routes.draw do
     post 'notify' => :notify
   end
   
-  root :to => 'recipients#new'
+  root :to => 'recipients#new', as: 'new_recipient'
 end

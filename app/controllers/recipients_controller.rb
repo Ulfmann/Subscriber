@@ -6,7 +6,7 @@ class RecipientsController < ApplicationController
   def index
     
     unless (session[:admin])
-      flash[:error] = "Du hast keinen Zugriff auf den Adminbereich!"
+      flash[:error] = 'Du hast keinen Zugriff auf den Adminbereich!'
       redirect_to new_recipient_path
     end
     
@@ -23,8 +23,17 @@ class RecipientsController < ApplicationController
     if @recipient.save      
       redirect_to new_recipient_path, notice: 'Danke für Deine Anmeldung!'
     else
-      flash[:alert] = "Keine gültige Email-Adresse!"
-      render :new
+      # treat a duplicate entry differently since we do not
+      # want to give away sensitive information.
+      taken_message = @recipient.errors.generate_message(:email, :taken)
+      
+      if @recipient.errors.get(:email).include? taken_message
+        flash[:notice] = 'Danke für Deine Anmeldung!'
+      else
+        flash[:alert] = @recipient.errors.full_messages.to_sentence
+      end
+      
+      redirect_to new_recipient_path
     end
   end
 

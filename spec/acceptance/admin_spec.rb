@@ -28,7 +28,7 @@ feature "admin" do
     
     click_button "Abmelden"
     
-    current_path.should eql('/recipients/new')
+    current_path.should eql('/')
   end
   
   scenario "Delete Subscriber" do
