@@ -1,5 +1,7 @@
 class Recipient < ActiveRecord::Base
   
+  validates :betatest, inclusion:[ true, false ]
+            
   validates :email, 
             presence:   true,
             uniqueness: true,

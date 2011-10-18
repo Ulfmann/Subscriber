@@ -221,7 +221,7 @@ de:
     attributes:
       recipient:
         email: E-Mail-Adresse
-    
+        betatest: "Ja, ich nehme an der Beta-Version teil."
     errors:
       messages:
         taken: "ist bereits vergeben"

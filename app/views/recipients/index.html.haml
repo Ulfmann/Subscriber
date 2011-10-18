@@ -1,16 +1,19 @@
-%h1 Newsletter Liste
+%h2 Newsletter Liste
 %br/
 %table
   %tr
     %th E-Mail
-    %th
+    %th Beta
     %th
 
   - @recipients.each do |recipient|
-    %tr{ class: cycle('list_line_even', 'list_line_odd') }
+    %tr{ class: cycle('even', 'odd'), id: dom_id(recipient) }
       %td= recipient.email
-      %td 
-        = button_to 'Entfernen', recipient, method: :delete
+      - if recipient.betatest?
+        %td Ja
+      - else
+        %td Nein
+      %td= button_to 'Entfernen', recipient, method: :delete
 
 %br/
 

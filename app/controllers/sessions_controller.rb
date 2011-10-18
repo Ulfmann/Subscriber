@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create  
     if session[:admin]
-      redirect_to recipients_path, notice: 'Du bist als Admin eingeloggt.'
+      redirect_to recipients_path
     else
       flash[:alert] = 'Die Anmeldedaten waren nicht korrekt'
       redirect_to login_path
@@ -13,6 +13,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:admin] = false
-    redirect_to new_recipient_path, notice: 'Du hast dich erfolgreich ausgeloggt.'
+    redirect_to new_recipient_path
   end
 end
