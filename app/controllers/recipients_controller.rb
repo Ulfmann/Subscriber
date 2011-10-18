@@ -29,11 +29,11 @@ class RecipientsController < ApplicationController
       
       if @recipient.errors.get(:email).include? taken_message
         flash[:notice] = 'Danke für Deine Anmeldung!'
+        redirect_to new_recipient_path
       else
-        flash[:alert] = @recipient.errors.full_messages.to_sentence
-      end
-      
-      redirect_to new_recipient_path
+        flash.now[:alert] = @recipient.errors.full_messages.to_sentence
+        render :new
+      end    
     end
   end
 
