@@ -22,23 +22,33 @@ feature "Recipients" do
   end
   
   scenario "Insert existing Address" do
+
+    email_address = "hello@me.de"
     
-    recipient = Recipient.new(email:"hello@me.de")
-    recipient.save
+    Recipient.create!(email:email_address, betatest:false)
     
     visit "/"
-    fill_in "recipient_email", with: "hello@me.de"
+    fill_in "recipient_email", with:email_address
     
     click_button "Eintragen"
     
     page.should have_content("Danke für Deine Anmeldung!")
   end
   
-  
-  scenario "Access Admin Page" do
+  scenario "Participating in the beta program" do 
+    
+    visit "/"
+    fill_in "recipient_email", with: "something@awesome.de"
+    check "recipient_betatest"
+    
+    click_button "Eintragen"
+    
+    page.should have_content("Danke für Deine Anmeldung!")
+  end
+    
+  scenario "Deny access to admin area" do
     
     visit "/recipients"
-    page.should have_content("Du hast keinen Zugriff auf den Adminbereich!")
-    
+    current_path.should eql('/')
   end
 end

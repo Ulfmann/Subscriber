@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protected
   
     def authorize
-      if params[:name] == "admin" && params[:password] == "root"
+      if params[:name] == "admin" && params[:password] == "tusDUvt7435"
         session[:admin] = true
       end
     end

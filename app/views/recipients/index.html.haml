@@ -1,0 +1,31 @@
+%h2 Newsletter Liste
+%br/
+%table
+  %tr
+    %th E-Mail
+    %th Beta
+    %th
+
+  - @recipients.each do |recipient|
+    %tr{ class: cycle('even', 'odd'), id: dom_id(recipient) }
+      %td= recipient.email
+      - if recipient.betatest?
+        %td Ja
+      - else
+        %td Nein
+      %td= button_to 'Entfernen', recipient, method: :delete
+
+%br/
+
+%div
+  #button
+    = form_tag new_recipient_path, method: :get do
+      %input{type:"submit", value: "Neue Mail-Adresse"}
+
+  #button
+    = form_tag logout_path, method: :delete do
+      = submit_tag 'Abmelden'
+
+  %div
+    = form_tag notify_path do
+      %input#newsletterButton{type: "submit", value: "Newsletter versenden"}

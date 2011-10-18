@@ -14,20 +14,26 @@ describe Recipient do
   end
   
   it "should require an email address" do
-    Recipient.new(email:nil ).should have(1).error_on(:email)
-    Recipient.new(email:''  ).should have(1).error_on(:email)
-    Recipient.new(email:' ' ).should have(1).error_on(:email)
+    Recipient.new(email:nil).should have(1).error_on(:email)
+    Recipient.new(email:'' ).should have(1).error_on(:email)
+    Recipient.new(email:' ').should have(1).error_on(:email)
   end
 
-  it "should not allow dublicate emails" do
-    Recipient.create!(email:'ulf@portner.de')    
+  it "should not allow duplicate emails" do
+    Recipient.create!(email:'ulf@portner.de', betatest: 'false')
     Recipient.new(email:"ulf@portner.de").should have(1).errors_on(:email)
   end
   
+  it "should require the betatest attribute to be set" do
+    Recipient.new(email:'ulf@portner.de', betatest:nil  ).should have(1).errors_on(:betatest)
+    Recipient.new(email:'ulf@portner.de', betatest:true ).should have(:no).errors_on(:betatest)
+    Recipient.new(email:'ulf@portner.de', betatest:false).should have(:no).errors_on(:betatest)
+  end
+  
   it "should send a mail to each recipient" do
-    a = Recipient.create!(email:"ernie@sesamstrasse.de")
-    b = Recipient.create!(email:"bert@sesamstrasse.de")
-    c = Recipient.create!(email:"ulf.portner@googlemail.com")
+    a = Recipient.create!(email:"ernie@sesamstrasse.de", betatest: 'false')
+    b = Recipient.create!(email:"bert@sesamstrasse.de", betatest: 'false')
+    c = Recipient.create!(email:"ulf.portner@googlemail.com", betatest: 'false')
     
     Recipient.send_notifications
     

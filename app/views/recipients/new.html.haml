@@ -16,3 +16,7 @@
     %div
       = form.text_field :email, placeholder:'Deine E-Mail-Adresse'
       = form.submit 'Eintragen'
+      %br/
+      %div
+        = form.check_box :betatest
+        = form.label :betatest

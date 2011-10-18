@@ -6,7 +6,6 @@ class RecipientsController < ApplicationController
   def index
     
     unless (session[:admin])
-      flash[:error] = 'Du hast keinen Zugriff auf den Adminbereich!'
       redirect_to new_recipient_path
     end
     
@@ -20,7 +19,7 @@ class RecipientsController < ApplicationController
   def create
     @recipient = Recipient.new(params[:recipient])
 
-    if @recipient.save      
+    if @recipient.save
       redirect_to new_recipient_path, notice: 'Danke für Deine Anmeldung!'
     else
       # treat a duplicate entry differently since we do not
@@ -46,8 +45,6 @@ class RecipientsController < ApplicationController
   
   def notify
     Recipient.delay.send_notifications
-    
     redirect_to recipients_path, notice: 'Der Newsletter wird jetzt versendet.'
   end
-  
 end

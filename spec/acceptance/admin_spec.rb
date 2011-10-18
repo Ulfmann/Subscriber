@@ -3,15 +3,14 @@ require 'acceptance/acceptance_helper'
 feature "admin" do
   
   before do
-    recipient = Recipient.new(email:"hello@me.de")
-    recipient.save
+    recipient = Recipient.create!(email:"hello@me.de", betatest:true)
   end
 
   scenario "Login" do
     
     visit login_path
     fill_in "name", with: "admin"
-    fill_in "password", with: "root"
+    fill_in "password", with: "tusDUvt7435"
     
     click_button "Anmelden"
     
@@ -22,7 +21,7 @@ feature "admin" do
   
     visit login_path
     fill_in "name", with: "admin"
-    fill_in "password", with: "root"
+    fill_in "password", with: "tusDUvt7435"
     
     click_button "Anmelden"
     
@@ -35,7 +34,7 @@ feature "admin" do
     
     visit login_path
     fill_in "name", with: "admin"
-    fill_in "password", with: "root"
+    fill_in "password", with: "tusDUvt7435"
     
     click_button "Anmelden"
      
