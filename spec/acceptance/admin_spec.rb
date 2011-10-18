@@ -10,7 +10,7 @@ feature "admin" do
     
     visit login_path
     fill_in "name", with: "admin"
-    fill_in "password", with: "root"
+    fill_in "password", with: "tusDUvt7435"
     
     click_button "Anmelden"
     
@@ -21,7 +21,7 @@ feature "admin" do
   
     visit login_path
     fill_in "name", with: "admin"
-    fill_in "password", with: "root"
+    fill_in "password", with: "tusDUvt7435"
     
     click_button "Anmelden"
     
@@ -34,7 +34,7 @@ feature "admin" do
     
     visit login_path
     fill_in "name", with: "admin"
-    fill_in "password", with: "root"
+    fill_in "password", with: "tusDUvt7435"
     
     click_button "Anmelden"
      
