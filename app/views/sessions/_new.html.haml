@@ -1,0 +1,12 @@
+= form_tag login_path do
+  %div
+    %label{for: 'name'} Name:
+    = text_field_tag :name, params[:name]
+
+  %div  
+    %label{for: 'password'} Passwort:
+    = password_field_tag :password, params[:password]
+    
+  %br/
+  %div
+    = submit_tag 'Anmelden'

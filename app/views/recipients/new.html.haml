@@ -1,0 +1,7 @@
+%h1
+  %img{src: '/assets/flat.st.png', alt: 'flatst'}
+
+= form_for @recipient do |f|
+  %fieldset#recipient
+    = f.text_field :email, placeholder:'Gib hier Deine E-Mail-Adresse ein.'
+    = f.submit 'Eintragen'

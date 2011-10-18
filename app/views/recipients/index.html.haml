@@ -1,0 +1,28 @@
+%h1 Newsletter Liste
+%br/
+%table
+  %tr
+    %th E-Mail
+    %th
+    %th
+
+  - @recipients.each do |recipient|
+    %tr{ class: cycle('list_line_even', 'list_line_odd') }
+      %td= recipient.email
+      %td 
+        = button_to 'Entfernen', recipient, method: :delete
+
+%br/
+
+%div
+  #button
+    = form_tag new_recipient_path, method: :get do
+      %input{type:"submit", value: "Neue Mail-Adresse"}
+
+  #button
+    = form_tag logout_path, method: :delete do
+      = submit_tag 'Abmelden'
+
+  %div
+    = form_tag notify_path do
+      %input#newsletterButton{type: "submit", value: "Newsletter versenden"}
