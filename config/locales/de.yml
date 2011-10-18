@@ -1,8 +1,3 @@
-# German translations for Ruby on Rails
-# by Clemens Kofler (clemens@railway.at)
-# contributors:
-#  - Alexander Dreher - http://github.com/alexdreher - Rails 3 update
-
 de:
   date:
     formats:
@@ -221,7 +216,7 @@ de:
     attributes:
       recipient:
         email: E-Mail-Adresse
-        betatest: "Ja, ich nehme an der Beta-Version teil."
+        betatest: "Ich interessiere mich für die Teilnahme am Beta-Test"
     errors:
       messages:
         taken: "ist bereits vergeben"

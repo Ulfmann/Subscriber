@@ -1,14 +1,23 @@
+html, body { height: 100%; }
+
 body {
   font-family: proxima-nova-soft, sans-serif;
-  background-color: #ebe6cd;
+  background: hsl(44, 47%, 87%) url(bg_paper.jpg) center top repeat-x;
   color: hsl(45, 15%, 25%);
   margin: 0;
 }
 
 #main {
+  background: transparent url(bg_map.jpg) center top no-repeat;
   text-align: center;
-  width: 640px;
+  width: 960px;
+  height: 960px;
   margin: 0 auto;
+}
+
+#header {
+  height: 0;
+  padding: 30px;
 }
 
 h1 {
@@ -16,7 +25,7 @@ h1 {
   font-weight: 700;
   font-size: 110px;
   letter-spacing: -0.02em;
-  margin: 70px 0 0;
+  margin: 0;
 }
 
 h2 {
@@ -30,19 +39,13 @@ p.info {
   font-size: 13px;
 }
 
-#header {
-  width: 100%;
-  position: absolute;
-  top: 0;
-}
-
 .flash {
-  width: 640px;
+  width: 480px;
   text-align: center;
   padding: 0.5em;
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: white;
-  margin: 20px auto;
+  margin: 0 auto;
   border-radius: 5px;
   
   &.notice { background-color: #a6b616; }
@@ -61,9 +64,6 @@ input, select, textarea {
   border-radius: 0 5px 5px 5px;
   background-color: white;
   box-shadow: 1px 1px 0 rgba(black, 0.2);
-}
-
-input[type="text password"] {
   padding: 0.4em;
 }
 

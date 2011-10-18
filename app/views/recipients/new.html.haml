@@ -1,8 +1,11 @@
 #main
+  #header
+    = render_flash
+  
   %h1
     %span.flat<> flat 
     %span.st<>   st
-      
+    
   %h2 Bei uns findest du deine WG – oder deine WG findet dich.
   %h2 Ab Dezember.
 
@@ -13,10 +16,10 @@
       %br
       Wir schicken dir nur eine E-Mail. Kein Newsletter. Kein Spam.
 
+    %p.info
+      = form.check_box :betatest
+      = form.label :betatest
+
     %div
       = form.text_field :email, placeholder:'Deine E-Mail-Adresse'
       = form.submit 'Eintragen'
-      %br/
-      %div
-        = form.check_box :betatest
-        = form.label :betatest
