@@ -1,7 +1,18 @@
-%h1
-  %img{src: '/assets/flat.st.png', alt: 'flatst'}
+#main
+  %h1
+    %span.flat<> flat 
+    %span.st<>   st
+      
+  %h2 Bei uns findest du deine WG – oder deine WG findet dich.
+  %h2 Ab Dezember.
 
-= form_for @recipient do |f|
-  %fieldset#recipient
-    = f.text_field :email, placeholder:'Gib hier Deine E-Mail-Adresse ein.'
-    = f.submit 'Eintragen'
+  = form_for @recipient do |form|
+
+    %p.info
+      Wir benachrichtigen dich gerne, sobald es richtig los geht.
+      %br
+      Wir schicken dir nur eine E-Mail. Kein Newsletter. Kein Spam.
+
+    %div
+      = form.text_field :email, placeholder:'Deine E-Mail-Adresse'
+      = form.submit 'Eintragen'

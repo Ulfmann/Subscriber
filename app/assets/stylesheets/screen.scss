@@ -1,33 +1,87 @@
 body {
   font-family: proxima-nova-soft, sans-serif;
+  background-color: #ebe6cd;
+  color: hsl(45, 15%, 25%);
+  margin: 0;
+}
+
+#main {
+  text-align: center;
+  width: 640px;
+  margin: 0 auto;
 }
 
 h1 {
-  width: 200px;
-  margin: 50px auto 0;  
+  font-family: ff-cocon-web-pro, sans-serif;
+  font-weight: 700;
+  font-size: 110px;
+  letter-spacing: -0.02em;
+  margin: 70px 0 0;
 }
 
-fieldset {
-  border: none;
-  padding: 0;
+h2 {
+  font-weight: 100;
+}
+
+.flat { color: #102c4a; }
+.st   { color: #00a69e; }
+
+p.info {
+  font-size: 13px;
+}
+
+#header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.flash {
+  width: 640px;
+  text-align: center;
+  padding: 0.5em;
+  font-size: 1.5em;
+  color: white;
+  margin: 20px auto;
+  border-radius: 5px;
+  
+  &.notice { background-color: #a6b616; }
+  &.alert  { background-color: #d66329; }
+}
+
+form {
+  font-size: 1.2em  ;
+  margin: 2em 0;
 }
 
 input, select, textarea {
   font-family: inherit;
   font-size: inherit;
+  border: 1px solid #f6f6f6;
+  border-radius: 0 5px 5px 5px;
+  background-color: white;
+  box-shadow: 1px 1px 0 rgba(black, 0.2);
 }
 
 input[type=text] {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 5px 10px;
+  padding: 0.4em;
 }
 
 input[type=submit] {
-  border: 1px solid darkgreen;  
-  border-radius: 4px;
-  background-color: lime;
-  padding: 5px 10px;
+  font-family: proxima-nova, sans-serif;
+  font-weight: 300;
+  border-color: #f4ff84 #9b937d #9b937d #f4ff84;
+  background-color: #c5d72a;
+  color: #4d443d;
+  text-shadow: rgba(white, 0.7) 0px 1px 0px;
+  text-transform: uppercase;
+  padding: 0.45em 1.5em;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.field_with_errors {
+  display: inline;
 }
 
 #recipient {
@@ -37,5 +91,5 @@ input[type=submit] {
 }
 
 #recipient_email {
-  width: 340px;
+  width: 360px;
 }

@@ -1,20 +1,29 @@
 !!! 5
 %html
-%head
-  %title flat‧st
+  %head
+    %title flatst
   
-  = javascript_include_tag "http://use.typekit.com/yvm3kjd.js"
+    = javascript_include_tag "http://use.typekit.com/yvm3kjd.js"
 
-  :javascript
-    try Typekit.load()
+    :javascript
+      try { Typekit.load() } catch(e) {};
   
-  = stylesheet_link_tag 'screen'
-  = javascript_include_tag "http://code.jquery.com/jquery-1.6.4.min.js"
-  = javascript_include_tag 'application'
-  = csrf_meta_tag
+    = stylesheet_link_tag "screen"
+    
+    = javascript_include_tag "http://code.jquery.com/jquery-1.6.4.min.js"
+    = javascript_include_tag "application"
+    
+    = csrf_meta_tag
 
-%body
-  - flash.each do |type, message|
-    %p#type = message
+  %body
+    #header
+      - flash.each do |type, message|
+        .flash{ class:type }= message
+    
+    = yield
 
-  = yield
+:javascript
+  $(function(){
+    setTimeout(function(){ $('.flash').fadeOut(); }, 10000)
+  });
+
